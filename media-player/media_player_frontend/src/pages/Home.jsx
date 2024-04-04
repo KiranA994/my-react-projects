@@ -4,13 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faClockRotateLeft } from '@fortawesome/free-solid-svg-icons'
 import View from '../components/View'
 import Category from '../components/Category'
+import { Link } from 'react-router-dom'
 
 function Home() {
   return (
    <>
       <div className='my-5 container d-flex '>
           <Add/>
-          <h5 className='ms-auto'>Watch History<FontAwesomeIcon icon={faClockRotateLeft} className='ms-2' /></h5>
+          <Link to={'/history'} className='ms-auto' style={{textDecoration:'none'}}>
+            <h5>
+              <span id="history">Watch History</span>
+              <FontAwesomeIcon icon={faClockRotateLeft} 
+              className='ms-2 me-3' />
+            </h5>
+          </Link>
           
       </div>
 

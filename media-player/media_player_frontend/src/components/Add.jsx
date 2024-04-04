@@ -8,10 +8,15 @@ import { Button } from 'react-bootstrap';
 
 function Add() {
     const [show, setShow] = useState(false);
-
+    const [video, setVideo] = useState({
+      caption: '',
+      imageUrl: '',
+      embedLink: ''
+    })
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    console.log(video);
   return (
 
 <>
@@ -30,10 +35,12 @@ function Add() {
         <p>Fill the Following Details</p>
         <form className='mt-3 rounded border p-2'>
             <div className='mb-3'>
-                <input type="text" className='form-control' placeholder='Enter the Caption' />
+                <input type="text" className='form-control' placeholder='Enter the Caption'
+                onchange={(e)=>setVideo({...video,caption:e.target.value})} />
             </div>
             <div className='mb-3'>
-                <input type="text" className='form-control' placeholder='Enter the Image Url' />
+                <input type="text" className='form-control' placeholder='Enter the Image Url' 
+                onchange={(e)=>setVideo({...video,imageUrl:e.target.value})}/>
             </div>
             <div className='mb-3'>
                 <input type="text" className='form-control' placeholder='Enter the Youtube Video Link' />
