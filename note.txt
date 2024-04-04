@@ -1,0 +1,268 @@
+REACT
+-----
+
+react is a popular open source web application library.
+
+developed and maintained by facebook
+
+It make use of javascript library.
+
+features of react
+-----------------
+creation of UI 
+
+single page application - index.html is the only file that load in the browser.
+
+declarative application - does not directly access real dom.
+
+virtual dom
+  - It is a copy of real dom.
+  - diffing - comparing real dom with virtual dom
+  - reconciliation - process of updating real dom.  
+  
+
+language is jsx - combination of javascript and html.  
+
+transpiling - process of converting of jsx into browser understanding language.
+
+transpiling is done by babel.
+
+immutable variable - cannot change the value.
+
+pure functions
+--------------
+functions that accepts immutable arguments and return an object - result only depends on the arguments.
+
+data sharing
+
+unidirectional - parent to child
+
+props - object 
+
+
+how to create a react project 
+-----------------------------
+
+1) npx create-react-app projectName
+
+npx - node package execute - for running the react application
+
+npm - node package manager - for installation of libraries
+
+
+files
+-----
+1) README.md - provides the documentation of the project.
+2) package.json - It holds npm configuration. 
+                  dependencies - installed library.
+3) package-lock.json - It holds versions and important information about the libraries.
+4) .gitignore - file/folders that have to be ignored while adding to git.
+5) node_modules - full details of the installed libraries.
+6) public - files that can be accessed throughout the project.
+   - index.html 
+7) src - components are created inside this folder.
+   COMPONENT - It is a basic unit of UI
+   root component - app
+   - component name should start with capital letter.
+   
+react fragment
+--------------
+content inside return should be placed inside a single tag - it can also be a react fragment(<></>)
+
+inline css in react
+-------------------
+
+style - property: value is placed as object.
+      - if the property have two words - that should be written in camelcase.
+
+external css
+------------
+
+external file with .css as extension.
+
+css modules
+-----------
+
+module.css 
+
+import in component where it is used.
+
+styling using a variable.
+
+global access
+
+this external file should created inside src folder.
+
+css file have to be linked with jsx/js using import.
+
+Two types of components
+-----------------------
+
+1) functional components / stateless component (type rfce for creating functional components)
+
+import React from 'react'
+
+function User() {
+  return (
+    <div>
+     User
+    </div>
+  )
+}
+
+export default User
+
+2) class components / statefull component (type rcc for creating class components)
+
+
+import React, { Component } from 'react'
+
+export default class Random extends Component {
+  render() {
+    return (
+      <div>Random</div>
+    )
+  }
+}
+
+props
+-----
+
+It is an object used to share data between parent and child.
+
+object destructuring
+--------------------
+accessing the key directly instead of the entire object.
+
+event handling in react
+-----------------------
+
+functions with arguments - fuction should be called inside another function - callback function.
+functions without arguments - just need to give the name of the function
+
+onchange - to get the values from input box.
+
+conditional rendering
+---------------------
+rendering or loading an element based on a condition.
+
+1) ternary operator - condition?true:false
+2) truthy operator - condition && true statement
+
+react state
+-----------
+
+states are predefined objects to store properties of a class based component.
+
+used to store data
+
+when value changes in a state the whole component re-render.
+
+state by default is for class components.
+
+setState() - It is used to change the values of a state 
+
+
+lifecycle of a class component
+------------------------------
+
+ 1) mounting phase - creation of component.
+
+   constructor() - initialzing state.
+
+   getDerivedStateFromProps() - It returns an object to update the state or null to indicate that no state update is necessary.
+
+   render() - It returns the JSX that represents the component's output.
+
+   componentDidMount() - last method - network request(api call)
+
+ 2) Updating Phase : editing of Component
+
+     - getDerivedStateFromProps()-modify the state value with props
+
+     - shouldComponentUpdate -This method is invoked before rendering when new props or state are being received. 
+                              It returns true if the component should re-render, or false if it should not.
+     
+     - render()-It returns the JSX that represents the component's output.
+
+     - getSnapShotBeforeUpdate()- This method is called right before the changes from the virtual DOM are to be reflected in the actual DOM. 
+                                  It allows you to capture some information from the DOM (e.g., scroll position) before it's potentially changed.
+     
+     - compountDidUpdate()- This method is called after the component is updated in the DOM. 
+                            It's often used to interact with the DOM or perform additional side effects.
+
+  3) Unmounting Phase : removal of component from  DOM   
+
+     - componentWillUnmount() - invoked just before the unmount to cancel if there any network is done etc ...inshot it cleanup the component 
+                                before it is removed from the DOM.
+
+Hooks
+-----
+
+hooks are functions 
+
+types of hooks
+--------------
+
+1) predefined hooks
+
+eg:- useState() - functional component - state create
+     
+     It returns state and function to change the state.
+
+     const [statename, function] = useState(initial value)
+
+2) custom hooks
+
+rules
+-----
+1) inorder to use hooks we need to mport that particular hook from the react library at the top of the component file.
+
+2) can call hooks only at the top section inside the function
+
+3) cannot use hook on conditional basis.
+
+
+rest operator(...)
+------------------
+It returns the array of object up to a limit.
+
+vite
+----
+environment to run and build frontend technologies.
+
+can build react application fast easy and efficient
+
+npm create vite@latest projectname
+
+cd projectname
+
+npm install
+
+npm run dev
+
+regular expression
+------------------
+use to check the pattern of a string
+
+rules
+-----
+1) it should start and end with forward slash.
+2) expression begins with ^ symbol
+3) expression ends with $ symbol
+
+eg: /^[0-9]$/
+
+match()
+-------
+method returns array if the string matches with the pattern else return null.
+
+react-router-dom library
+------------------------
+In order to give path in react application
+
+steps to give path
+------------------
+1) install react-router-dom
+2) wrap app selector inside BrowserRouter in main.jsx file
+3) place Routetag inside Routes tag.
