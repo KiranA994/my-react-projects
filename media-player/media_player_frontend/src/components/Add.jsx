@@ -4,6 +4,9 @@ import React from 'react'
 import Modal from 'react-bootstrap/Modal';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { uploadVideoApi } from '../services/allAPI';
 
 
 function Add() {
@@ -16,7 +19,32 @@ function Add() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    console.log(video);
+    const getEmbedLink = (e) =>{
+      const text = e.target.value;
+      if(text.startsWith('https://youtu.be/')){
+        const link = `https://www.youtube.com/embed/${text.slice(17,28)}`
+        setVideo({...video,embedLink:link})
+      }
+      else{
+        const link = `https://www.youtube.com/embed/${text.slice(-11)}`
+        setVideo({...video,embedLink:link})
+      }
+    }
+
+    const handleUpload = async() => {
+      const {caption,imageUrl,embedLink} = video
+      if(!caption || !imageUrl || !embedLink){
+        // toast.info('please fill the form completely')
+
+      }
+      else{
+        const response = await uploadVideoApi(video)
+        console.log(response);
+        // toast.success('proceed')
+      }
+     }
+
+
   return (
 
 <>
@@ -36,14 +64,15 @@ function Add() {
         <form className='mt-3 rounded border p-2'>
             <div className='mb-3'>
                 <input type="text" className='form-control' placeholder='Enter the Caption'
-                onchange={(e)=>setVideo({...video,caption:e.target.value})} />
+                onChange={(e)=>setVideo({...video,caption:e.target.value})} />
             </div>
             <div className='mb-3'>
                 <input type="text" className='form-control' placeholder='Enter the Image Url' 
-                onchange={(e)=>setVideo({...video,imageUrl:e.target.value})}/>
+                onChange={(e)=>setVideo({...video,imageUrl:e.target.value})}/>
             </div>
             <div className='mb-3'>
-                <input type="text" className='form-control' placeholder='Enter the Youtube Video Link' />
+                <input type="text" className='form-control' placeholder='Enter the Youtube Video Link' 
+                onChange={(e)=>getEmbedLink(e)}/>
             </div>
         </form>
     </Modal.Body>
@@ -51,11 +80,13 @@ function Add() {
       <Button variant="secondary" onClick={handleClose}>
         Cancel
       </Button>
-      <Button variant="warning" onClick={handleClose} style={{backgroundColor: 'orange', color: 'rebeccapurple'}}>
+      <Button variant="warning" onClick={handleUpload} style={{backgroundColor: 'orange', color: 'rebeccapurple'}}>
         Upload
       </Button>
     </Modal.Footer>
     </Modal>
+
+    <ToastContainer theme='colored' position='top-right' autoClose={2000} />
 </>
 
   )
