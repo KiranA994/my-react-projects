@@ -1,0 +1,16 @@
+{
+  "videos": [
+    {
+      "caption": "Nila Paithale",
+      "imageUrl": "https://i.ytimg.com/vi/yrjOQD7T_Bc/maxresdefault.jpg",
+      "embedLink": "https://www.youtube.com/embed/art_radio=1",
+      "id": 1
+    },
+    {
+      "caption": "Nila Paithale",
+      "imageUrl": "https://i.ytimg.com/vi/yrjOQD7T_Bc/maxresdefault.jpg",
+      "embedLink": "https://www.youtube.com/embed/art_radio=1",
+      "id": 2
+    }
+  ]
+}

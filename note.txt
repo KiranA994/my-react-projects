@@ -241,6 +241,16 @@ npm install
 
 npm run dev
 
+open React Bootstrap page
+-------------------------
+
+npm install react-bootstrap bootstrap
+
+To include font awesome font in react
+-------------------------------------
+
+npm install --save @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons
+
 regular expression
 ------------------
 use to check the pattern of a string
@@ -289,3 +299,52 @@ content-type
 request with uploaded content from the system - multipart/form-data
 
 request without uploaded content - application/json
+
+json server
+-----------
+It is a light weight and easy to use node.js tool that can simulate restful api using json file as the data source.
+
+not a real serverwith json server frontend developer can creaye mock api without the nedd to write complex server code, or when backend is not ready
+
+features of json server
+-----------------------
+
+easy and quick to set up - it is also a user friendly.
+
+supports common HTTP method like GET, POST, DELETE and PUT.
+
+used to do CRUD operation.
+
+also supports routing
+
+steps to create json servers
+----------------------------
+1) create a folder for server.
+
+2) create package.json file 
+  
+   command
+   -------
+   npm init -y
+
+3) install json server library - create json server and read json file
+
+npm i json-server@0.17.4
+
+node module -copy of library
+
+package-lock.json - version of the library
+
+4) create .gitignore file.
+
+hold the file that need not to be pushed into the git repo.
+
+5) create a .json file to store data
+
+6) create index.js file - it is the only file that runs in the backend. (mentioned in the main key of package.json)
+
+   a) import json server library - using require keyword.
+
+   b) create server using create function inside json-server library.
+
+   

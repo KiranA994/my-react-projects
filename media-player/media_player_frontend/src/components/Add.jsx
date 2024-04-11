@@ -40,7 +40,20 @@ function Add() {
       else{
         const response = await uploadVideoApi(video)
         console.log(response);
-        // toast.success('proceed')
+        if(response.status >= 200 && response.status < 300){
+          toast.success('Video Uploaded Successfully')
+          setVideo({
+            caption: '',
+            imageUrl: '',
+            embedLink: ''
+          })
+          handleClose()
+        }
+        else{
+          console.log(response);
+          toast.error('Something Went Wrong')
+        }
+
       }
      }
 
