@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { uploadVideoApi } from '../services/allAPI';
 
 
-function Add() {
+function Add({setvideoUploadStatus}) {
     const [show, setShow] = useState(false);
     const [video, setVideo] = useState({
       caption: '',
@@ -42,6 +42,7 @@ function Add() {
         console.log(response);
         if(response.status >= 200 && response.status < 300){
           toast.success('Video Uploaded Successfully')
+          setvideoUploadStatus(response.data)
           setVideo({
             caption: '',
             imageUrl: '',
