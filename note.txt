@@ -34,6 +34,7 @@ pure functions
 functions that accepts immutable arguments and return an object - result only depends on the arguments.
 
 data sharing
+------------
 
 unidirectional - parent to child
 
@@ -347,4 +348,65 @@ hold the file that need not to be pushed into the git repo.
 
    b) create server using create function inside json-server library.
 
-   
+useEffect()
+-----------
+used to handle side effects.
+
+side effects are those activities that effect pure function property.
+
+Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+
+useEffect accepts two arguments. 
+
+useEffect(<function>, <dependency>)
+
+<dependency> - This argument is optional.
+
+syntax
+------
+
+useEffect(()=>{
+
+},dependency)
+
+dependency is used to control side effect.
+1. No dependency passed:
+
+   runs on every render.
+
+2. An empty array:
+
+useEffect(() => {
+}, []);
+
+Runs only on the first render
+
+3. Props or state values:
+
+useEffect(() => {
+}, [prop, state]);
+
+Runs on the first render
+and any time any dependency value changes
+
+data sharing between siblings or unrelated components
+-----------------------------------------------------
+1) state lifting
+2) redux
+3) context api
+
+state lifting
+-------------
+It is a method of creating of state in the parent component rather than creating the state in the child component inorder to share data.
+
+drag and drop meachanism
+------------------------
+
+provide draggable tag which is neeed to be dragged.
+onDragstart() - any data that have to be send can be defined 
+e.dataTransfer.setdata(data)
+ondragOver() - to prevent data lose
+
+droppable - tag on which the content is dropped
+ondrop()
+e.dataTransfer.getData()
