@@ -410,3 +410,102 @@ ondragOver() - to prevent data lose
 droppable - tag on which the content is dropped
 ondrop()
 e.dataTransfer.getData()
+
+
+prop drilling
+-------------
+
+prop drilling occurs when a parent component generates its state and passes it down as props to its children component 
+
+that does not consume the props but instead they passes it down to another component that finally consumes it.
+
+
+elongated props
+---------------
+
+props which are neither created nor consumed by a component is known as elongated props.
+
+
+coupling
+--------
+
+inter dependency of components 
+
+prop drilling increases coupling
+
+
+disadvantages of state lifting
+------------------------------
+
+chance of data loss due to inefficiency of any node while prop drilling.
+
+
+redux - state management system
+-----
+
+redux is a javascript library used for managing state in an application like react.
+
+reduce inter dependency of components
+
+There are three components in redux 
+
+1) action
+
+  holds the logic to change the state
+
+  It returns the payload
+
+  created using the functions createAction()
+
+  payload is sent to the reducer
+
+
+2) reducer
+
+   created using the function createReducer()
+
+   It can change the value of the state in the store.
+
+
+3) store
+
+   created using the function configureStore()
+
+   states are created in the store.
+
+   these states are globally accessible.
+
+
+states are created inside the store
+
+state will be globally accessible throughout the application when created in the store.
+
+components can directly access the state but cannot change the value of the state.
+
+action .
+
+components calling the action function => dispatch
+
+hook for dispatch => useDispatch()
+
+result from the action => payload 
+
+result is sent to the reducer.
+
+reducer have the potential to update the state
+
+
+
+Redux Toolkits
+--------------
+
+since many of the redux functions got deprecated they introduced redux Toolkit.
+
+It contains a slice file which holds both action as well as reducer.
+
+slice are created using the function createSlice().
+
+It returns both action as well as reducer.
+
+
+URL.createObjectURL() - to convert a file into url.
